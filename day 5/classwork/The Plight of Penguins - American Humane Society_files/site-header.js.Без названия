@@ -1,0 +1,78 @@
+// Assuming site header is fixed, add a class to indicate when it's "stuck"
+const siteHeader = document.querySelector(".wp-block-site-header");
+const siteHeaderPinnedThreshold = 20; // threshold in pixels that we'll switch to pinned
+let siteHeaderScrollTimeoutId = 0;
+window.addEventListener(
+    "scroll",
+    () => {
+        siteHeaderScrollTimeoutId && window.cancelAnimationFrame(siteHeaderScrollTimeoutId);
+        siteHeaderScrollTimeoutId = window.requestAnimationFrame(() => {
+            siteHeader.classList.toggle("wp-block-site-header--is-pinned", window.scrollY > siteHeaderPinnedThreshold);
+        });
+    },
+    false
+);
+
+// Check on page load
+siteHeader.classList.toggle("wp-block-site-header--is-pinned", window.scrollY > siteHeaderPinnedThreshold);
+
+const desktopDropdownsDrawer = document.querySelector(".site-header__desktop-nav-drawer");
+const desktopMenuItemsWithDropdown = document.querySelectorAll(".site-header__desktop-nav .menu-item-has-megamenu");
+let desktopNavOpen = false;
+
+function closeDesktopDropdowns() {
+    document.querySelector(".site-header__desktop-nav-dropdown.is-active")?.classList.remove("is-active");
+    document
+        .querySelector(".site-header__desktop-nav .menu-item-has-megamenu.is-active")
+        ?.classList.remove("is-active");
+    desktopDropdownsDrawer.classList.remove("is-active");
+    desktopNavOpen = false;
+}
+
+for (let i = 0; i < desktopMenuItemsWithDropdown.length; i++) {
+    desktopMenuItemsWithDropdown[i].querySelector("a").addEventListener("click", (e) => {
+        e.preventDefault();
+        let relevantDropdown = document.querySelector(
+            `.site-header__desktop-nav-dropdowns [data-dropdown-for="${desktopMenuItemsWithDropdown[i].id}"]`
+        );
+
+        // if relevant dropdown is already open, close it
+        if (relevantDropdown.classList.contains("is-active")) {
+            closeDesktopDropdowns();
+
+            // otherwise close open dropdowns and open this one
+        } else {
+            document.querySelector(".site-header__desktop-nav-dropdown.is-active")?.classList.remove("is-active");
+            document
+                .querySelector(".site-header__desktop-nav .menu-item-has-megamenu.is-active")
+                ?.classList.remove("is-active");
+            desktopMenuItemsWithDropdown[i].classList.add("is-active");
+            relevantDropdown.classList.add("is-active");
+            desktopDropdownsDrawer.classList.add("is-active");
+            desktopNavOpen = true;
+        }
+    });
+}
+
+// close dropdowns
+window.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        closeDesktopDropdowns();
+    }
+});
+
+window.addEventListener("click", function (event) {
+    if (desktopNavOpen && !siteHeader.contains(event.target)) {
+        closeDesktopDropdowns();
+    }
+});
+
+const mobileNavDrawer = document.querySelector(".site-header__mobile-nav-drawer");
+const mobileNavStatus = document.querySelector(".site-header__mobile-nav-status");
+mobileNavStatus.addEventListener("change", function () {
+    if (this.checked) {
+        mobileNavDrawer.classList.add("is-active");
+    } else {
+        mobileNavDrawer.classList.remove("is-active");
+    }
+});

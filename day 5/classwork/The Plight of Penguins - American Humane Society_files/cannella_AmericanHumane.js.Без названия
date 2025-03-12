@@ -1,0 +1,42 @@
+
+var full_url = window.location.href;
+
+var img = document.createElement('img');
+
+var previous_page = document.referrer;
+
+var cm_url = "https://syzli9d2vf.execute-api.us-west-2.amazonaws.com/trackingPixelProcessing";
+
+
+
+
+
+
+var cm_checkout_price = 'None';
+var cm_order_id = 'None';
+var cm_event = 'None';
+var cm_checkout_1 = 'Pups4Patriots';
+
+if (full_url.includes(cm_checkout_1)) {
+	window.dataLayer.forEach((item, i)=> {
+
+		if(item.event === 'FundraiseUp.donationComplete') {
+
+			cm_event = 'order_placed';
+			cm_checkout_price = item.ecommerce.value;
+			cm_order_id = item.ecommerce.transaction_id;
+			
+		} })
+}
+
+
+cm_url += '?url='+encodeURIComponent(full_url) + '&previous_page=' + encodeURIComponent(previous_page) + '&event=' + encodeURIComponent(cm_event)+ '&order_id=' + encodeURIComponent(cm_order_id)+ '&checkout_price=' + encodeURIComponent(cm_checkout_price);
+
+
+img.src = cm_url
+
+
+
+document.getElementById('cannellamedia').appendChild(img)
+
+console.log(cm_url);

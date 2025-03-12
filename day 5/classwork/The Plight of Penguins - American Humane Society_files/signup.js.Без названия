@@ -1,0 +1,19 @@
+const signupFrames = document.querySelectorAll(".signup__frame");
+
+if (signupFrames.length) {
+    window.addEventListener(
+        "message",
+        function (e) {
+            // if we received a height in the message from child frame
+            if (e.data?.height) {
+                // loop through frames and only update the one from which we received the message
+                for (signupFrame of signupFrames) {
+                    if (signupFrame.contentWindow == e.source) {
+                        signupFrame.height = e.data.height + "px";
+                    }
+                }
+            }
+        },
+        false
+    );
+}

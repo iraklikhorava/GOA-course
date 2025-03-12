@@ -1,0 +1,302 @@
+/* Top Border Silhouette
+--------------------------------------------- */
+
+.is-style-top-border-silhouette::before {
+    background-repeat: repeat-x;
+    background-position: 50% 100%;
+    background-size: 77.25em; /* 1440 / 18.64 */
+    content: "";
+    left: 0;
+    height: 4.29em; /* 80 / 18.64 */
+    position: absolute;
+    top: 0;
+    transform: translateY(-92%);
+    width: 100%;
+}
+
+.has-border-dark-background-color.is-style-top-border-silhouette::before {
+    background-image: url("../icons/container-background-border-silhouette-raisinblack.svg");
+}
+
+.has-tertiary-background-color.is-style-top-border-silhouette::before {
+    background-image: url("../icons/container-background-border-silhouette-ghostwhite.svg");
+}
+
+.has-primary-background-color.is-style-top-border-silhouette::before {
+    background-image: url("../icons/container-background-border-silhouette-darkblue.svg");
+}
+
+.has-border-light-background-color.is-style-top-border-silhouette::before {
+    background-image: url("../icons/container-background-border-silhouette-coolgray.svg");
+}
+
+.has-base-background-color.is-style-top-border-silhouette::before {
+    background-image: url("../icons/container-background-border-silhouette-white.svg");
+}
+
+.has-main-background-color.is-style-top-border-silhouette::before {
+    background-image: url("../icons/container-background-border-silhouette-richblack.svg");
+}
+
+/* Interior Silhouette Options
+--------------------------------------------- */
+
+.is-style-background-silhouette {
+    background-position: 100% 100% !important;
+    background-repeat: no-repeat !important;
+}
+
+.has-dark-blue-raisin-gradient-background.is-style-background-silhouette {
+    background: url("../icons/ah-animalsilhouette-dark-footer.svg"), var(--wp--preset--gradient--dark-blue-raisin),
+        var(--wp--preset--color--main) !important;
+    background-position: 100% 100% !important;
+    background-repeat: no-repeat !important;
+}
+
+.has-main-background-color.is-style-background-silhouette {
+    background-image: url("../icons/ah-animalsilhouette-dark-footer.svg") !important;
+}
+
+.has-primary-background-color.is-style-background-silhouette {
+    background-image: url("../icons/ah-animalsilhouette-blue-navdropdown.svg") !important;
+}
+
+.has-border-light-background-color.is-style-background-silhouette {
+    background-image: url("../icons/ah-animalsilhouette-offwhite-navdropdown.svg") !important;
+}
+
+.has-tertiary-background-color.is-style-background-silhouette {
+    background-image: url("../icons/ah-animalsilhouette-offwhite-navdropdown.svg") !important;
+}
+
+.has-border-dark-background-color.is-style-background-silhouette {
+    background-image: url("../icons/ah-animalsilhouette-border-dark.svg") !important;
+}
+
+/* Shifting content in alt brand visual links
+------------------------------------------------- */
+
+.is-pattern-alt-brand-visual-links > .wp-block-group > .wp-block-group > .wp-block-group.is-vertical {
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .is-pattern-alt-brand-visual-links > .wp-block-group > .wp-block-group {
+        position: relative;
+    }
+
+    .is-pattern-alt-brand-visual-links > .wp-block-group > .wp-block-group > .wp-block-group.is-vertical {
+        display: grid;
+        height: 100%;
+        gap: var(--wp--preset--spacing--small);
+        grid-auto-flow: row;
+        left: 0;
+        position: absolute;
+        transform: translate(calc(var(--wp--preset--spacing--large) * -1), var(--wp--preset--spacing--large));
+        width: calc(var(--wp--preset--spacing--xxx-large) * 2);
+    }
+
+    .is-pattern-alt-brand-visual-links > .wp-block-group > .wp-block-group > .wp-block-group.is-vertical figure {
+        height: 100%;
+        position: relative;
+    }
+
+    /* admin fix */
+    .is-pattern-alt-brand-visual-links > .wp-block-group > .wp-block-group > .wp-block-group.is-vertical figure > div {
+        height: 100% !important;
+    }
+
+    .is-pattern-alt-brand-visual-links > .wp-block-group > .wp-block-group > .wp-block-group.is-vertical figure img {
+        height: 100%;
+        left: 0;
+        object-fit: cover;
+        object-position: 50%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .is-pattern-alt-brand-visual-links
+        > .wp-block-group
+        > .wp-block-group
+        > .wp-block-group.is-vertical
+        + .wp-block-group {
+        padding-left: calc(var(--wp--preset--spacing--xxx-large) * 2) !important;
+    }
+}
+
+/* Brand Visual Cards Pattern
+------------------------------------------------- */
+
+.is-pattern-brand-visual-cards > .wp-block-group:first-child + .wp-block-group {
+    margin-top: calc(var(--wp--preset--spacing--xx-large) * -1);
+}
+
+@media (min-width: 641px) {
+    /* shift and pad background half the distance between 1440 and 1120 */
+    .is-pattern-brand-visual-cards .corner-crop {
+        padding-left: 160px !important;
+        transform: translateX(-160px);
+    }
+
+    /* absolutely position buttons */
+    .is-pattern-brand-visual-cards .corner-crop + .wp-block-buttons {
+        bottom: 0;
+        display: block;
+        position: absolute;
+        right: 0;
+        max-width: 160px;
+    }
+}
+
+@media (max-width: 640px) {
+    .is-pattern-brand-visual-cards .corner-crop {
+        padding-bottom: var(--wp--preset--spacing--xxxx-large) !important;
+    }
+
+    .is-pattern-brand-visual-cards .corner-crop + .wp-block-buttons {
+        bottom: 0;
+        display: block;
+        margin-bottom: var(--wp--preset--spacing--xxxx-large) !important;
+        padding: 0 var(--wp--preset--spacing--x-large);
+        position: absolute;
+        width: 100%;
+    }
+
+    .has-primary-background-color + .wp-block-buttons .wp-block-button__link {
+        color: var(--wp--preset--color--primary-accent);
+    }
+
+    .is-pattern-brand-visual-cards .wp-block-cards__cards {
+        margin: 0 var(--wp--preset--spacing--small);
+    }
+}
+
+/* Brand Visual Asset Pattern
+------------------------------------------------- */
+
+/* visuals above mobile get positioned 100% right to right of container */
+@media (min-width: 641px) {
+    .is-pattern-brand-visual-asset > .wp-block-group > .corner-crop {
+        max-width: 84%;
+    }
+
+    .is-pattern-brand-visual-asset > .wp-block-group > .corner-crop > .wp-block-group {
+        max-width: 60%;
+    }
+
+    .is-pattern-brand-visual-asset > .wp-block-group > .wp-block-group.is-vertical {
+        display: grid;
+        height: 100%;
+        gap: var(--wp--preset--spacing--small);
+        grid-auto-flow: row;
+        margin: 0;
+        /* content width (900px) + 220px gets us to 1120 px width, + amount that we shifted left */
+        max-width: calc(220px + 160px + var(--wp--preset--spacing--large));
+        position: absolute;
+        top: 0;
+        transform: translateY(var(--wp--preset--spacing--large));
+        right: 0;
+        width: 40%;
+        z-index: 2;
+    }
+
+    .is-pattern-brand-visual-asset > .wp-block-group > .wp-block-group.is-vertical figure {
+        height: 100%;
+        position: relative;
+    }
+
+    .is-pattern-brand-visual-asset > .wp-block-group > .wp-block-group.is-vertical figure > div {
+        height: 100% !important;
+    }
+
+    .is-pattern-brand-visual-asset > .wp-block-group > .wp-block-group.is-vertical figure img {
+        height: 100%;
+        left: 0;
+        object-fit: cover;
+        object-position: 50%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}
+
+/* large screens shift background and pad half the distance between 1440 and 1120 */
+@media (min-width: 1025px) {
+    .is-pattern-brand-visual-asset > .wp-block-group > .corner-crop {
+        padding-left: 160px !important;
+        transform: translateX(-160px);
+    }
+    .is-pattern-brand-visual-asset > .wp-block-group > .corner-crop > .wp-block-group {
+        max-width: 80%;
+    }
+}
+
+/* small screens adjust position of visual */
+@media (max-width: 640px) {
+    .is-pattern-brand-visual-asset > .wp-block-group > .wp-block-group.is-vertical {
+        margin-top: calc(var(--wp--preset--spacing--large) * -1);
+        padding: 0 var(--wp--preset--spacing--medium);
+        position: relative;
+        z-index: 2;
+    }
+}
+
+/* Styles for Heroes with Visuals (Campaign, Visual, Video)
+------------------------------------------------- */
+
+.is-pattern-campaign-hero > .wp-block-cover,
+.is-pattern-visual-hero > .wp-block-cover,
+.is-pattern-video-hero > .wp-block-cover {
+    min-height: var(--hero--min-height) !important;
+}
+
+@media (max-width: 640px) {
+    .is-pattern-campaign-hero > .wp-block-cover .wp-block-cover__background,
+    .is-pattern-visual-hero > .wp-block-cover .wp-block-cover__background,
+    .is-pattern-video-hero > .wp-block-cover .wp-block-cover__background {
+        background: rgba(22, 27, 38, 0.6) !important;
+    }
+}
+
+/* Brand Hero Pattern
+------------------------------------------------- */
+
+@media (min-width: 1023px) {
+    .is-pattern-brand-hero > .wp-block-group > .corner-crop {
+        padding-left: 160px !important;
+        transform: translateX(-160px);
+    }
+}
+
+/* Statistics Pattern
+------------------------------------------------- */
+
+.is-pattern-statistics .wp-block-columns .wp-block-heading {
+    white-space: nowrap;
+}
+
+/* Quote Section Pattern
+------------------------------------------------- */
+
+.is-pattern-quote-section {
+    padding-top: 2.68em; /* 50 / 18.64 */
+    position: relative;
+    z-index: 1;
+}
+
+.is-pattern-quote-section::before {
+    background-image: url("../icons/icon-blockquote-double-open-quote.svg");
+    background-size: 100%;
+    content: "";
+    left: -1.07em; /* 20 / 18.64 */
+    height: 3.81em; /* 71 / 86 */
+    position: absolute;
+    top: 0;
+    width: 4.61em; /* 86 / 18.64 */
+    z-index: 2;
+}
+
+.is-pattern-quote-section > .wp-block-group.is-style-background-silhouette {
+    background-position: calc(100% + 240px) 100% !important;
+}

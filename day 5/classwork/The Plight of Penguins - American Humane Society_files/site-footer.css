@@ -1,0 +1,212 @@
+/*  Above Footer -- Adjust synced patterns in footer
+--------------------------------------------- */
+
+.site-footer .is-pattern-donation-prompt {
+    margin-top: 0 !important;
+}
+
+.site-footer .is-pattern-newsletter-signup > .wp-block-group.has-background {
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+.site-footer .is-pattern-newsletter-signup h2 {
+    font-size: var(--wp--preset--font-size--medium) !important;
+}
+
+.above-footer > .is-pattern-newsletter-signup:first-child {
+    margin-top: 0 !important;
+}
+
+/* Site Footer Styles
+--------------------------------------------- */
+
+.wp-block-site-footer {
+    font-size: var(--wp--preset--font-size--small);
+    margin: 0 auto;
+    padding: var(--wp--preset--spacing--medium);
+}
+
+.site-footer__primary {
+    align-items: flex-start;
+    display: flex;
+    gap: var(--wp--preset--spacing--medium);
+    justify-content: space-between;
+}
+
+.wp-block-site-footer .site-footer__secondary {
+    margin-top: var(--wp--preset--spacing--xx-large);
+}
+
+.site-footer a {
+    color: var(--wp--preset--color--base) !important;
+}
+
+.site-footer a:hover {
+    color: var(--wp--preset--color--primary-accent) !important;
+}
+
+/*  Nav
+--------------------------------------------- */
+
+.site-footer__nav-menus {
+    align-content: flex-start;
+    gap: var(--wp--preset--spacing--large);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.site-footer__nav-menu-title {
+    margin-top: 0;
+}
+
+.site-footer__nav-menu-title a {
+    border-bottom: solid 1px var(--wp--preset--color--border-light);
+    display: flex;
+    font-size: var(--wp--preset--font-size--normal);
+    padding: 0 var(--wp--preset--spacing--large) 0.5em 0;
+    line-height: 1.8;
+}
+
+.site-footer__nav-menu-icon {
+    color: var(--wp--preset--color--base) !important;
+    display: block;
+    width: 25px;
+    line-height: 1.8;
+    margin-right: var(--wp--preset--spacing--20);
+}
+
+.site-footer__nav-menu-icon svg {
+    fill: currentColor;
+}
+
+.site-footer__nav-menu-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-footer__nav-menu-link {
+    font-size: var(--wp--preset--font-size--normal);
+    line-height: 2.2;
+}
+
+.site-footer__nav-menu-link a {
+    display: block;
+    padding: 0.4em 0;
+}
+
+/*  Identity
+--------------------------------------------- */
+
+.site-footer__identity {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.site-footer__identity a {
+    display: inline-block;
+}
+
+.site-footer__logo,
+.site-footer__social-links {
+    text-align: right;
+}
+
+.site-footer__logo {
+    width: 12.5em;
+}
+
+.site-footer__logo a {
+    display: block;
+}
+
+.site-footer__logo img {
+    display: block;
+    height: 100%;
+    width: auto;
+}
+
+.site-footer__social-links .wp-block-social-links {
+    gap: var(--wp--preset--spacing--small);
+    justify-content: flex-end;
+}
+
+.site-footer__address {
+    color: #fff;
+}
+
+.site-footer__address > :first-child {
+    margin-top: 0;
+}
+
+.site-footer__address > :last-child {
+    margin-bottom: 0;
+}
+
+.site-footer__logo + .site-footer__address--desktop {
+    margin-top: var(--wp--preset--spacing--medium);
+}
+
+.site-footer__address--desktop {
+    text-align: right;
+}
+
+.site-footer__address--desktop,
+.site-footer__address--mobile {
+    display: none;
+}
+
+/*  Legal
+--------------------------------------------- */
+
+.site-footer__secondary > .site-footer__legal {
+    margin-left: 0 !important;
+}
+
+.site-footer__legal a {
+    color: inherit !important;
+}
+
+.site-footer__legal > :first-child {
+    margin-top: 0;
+}
+
+.site-footer__legal > :last-child {
+    margin-bottom: 0;
+}
+
+/*  Responsive Footer
+--------------------------------------------- */
+
+@media (min-width: 641px) {
+    .site-footer__address--desktop {
+        display: block;
+    }
+}
+
+@media (max-width: 640px) {
+    .site-footer__primary {
+        flex-wrap: wrap;
+    }
+    .site-footer__identity {
+        align-items: center;
+        margin-left: 0;
+        order: 1;
+        width: 100%;
+    }
+    .site-footer__nav-menus {
+        align-content: stretch;
+        flex-direction: column;
+        order: 2;
+        width: 100%;
+    }
+    .site-footer__address--mobile {
+        display: block;
+        margin-top: var(--wp--preset--spacing--large);
+        order: 3;
+        width: 100%;
+    }
+}

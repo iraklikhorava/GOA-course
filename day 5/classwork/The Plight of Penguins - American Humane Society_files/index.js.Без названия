@@ -1,0 +1,11 @@
+/**
+ * Paragraphs with Caret Links
+ */
+
+const paragraphsWithCaretLinks = document.querySelectorAll(".is-style-end-caret-link");
+if (paragraphsWithCaretLinks.length > 0) {
+    for (paragraphsWithCaretLink of paragraphsWithCaretLinks) {
+        const endLink = paragraphsWithCaretLink.querySelector(":scope > a:last-child");
+        endLink?.classList.add("is-style-caret-right-link");
+    }
+}
